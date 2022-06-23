@@ -18,20 +18,20 @@ class UserFixtures extends Fixture
         $user->setFirstname('Bob');
         $user->setLastname('Lob');
         $user->setEmail('bob@gmail.com');
-      /*  $user->setPassword($this->passwordEncoder->hashPassword(
+        $user->setPassword($this->passwordEncoder->hashPassword(
             $user,
             'bob'
-        ));*/
+        ));
         $manager->persist($user);
 
-        $user->setFirstname('Bab');
-        $user->setLastname('Lab');
         $user2 = new User();
+        $user2->setFirstname('Bab');
+        $user2->setLastname('Lab');
         $user2->setEmail('bob2@gmail.com');
-      /*  $user2->setPassword($this->passwordEncoder->hashPassword(
+        $user2->setPassword($this->passwordEncoder->hashPassword(
             $user2,
             'bob'
-        ));*/
+        ));
         $manager->persist($user2);
         $manager->flush();
     }
