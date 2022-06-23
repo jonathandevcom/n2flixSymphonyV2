@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User implements PasswordAuthenticatedUserInterface // UserInterface,
+class User implements PasswordAuthenticatedUserInterface, UserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,6 +31,9 @@ class User implements PasswordAuthenticatedUserInterface // UserInterface,
 
     #[ORM\ManyToMany(targetEntity: Movie::class, inversedBy: 'users')]
     private $myMovie;
+
+    #[ORM\Column(type: 'json')]
+    private $roles = [];
 
     public function __construct()
     {
@@ -113,4 +116,29 @@ class User implements PasswordAuthenticatedUserInterface // UserInterface,
 
         return $this;
     }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+        $roles[] = 'ROLE_USER';
+    }
+
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+    
 }
