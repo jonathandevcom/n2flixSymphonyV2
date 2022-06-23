@@ -24,7 +24,7 @@ class MovieFixtures extends Fixture
 
         $movie2 = new Movie();
         $movie2->setTitle('Star Wars');
-        $movie2->setImage('https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg');
+        $movie2->setImage('https://fr.web.img6.acsta.net/pictures/20/10/02/12/21/3764004.png');
         $movie2->setYear('1977');
         $movie2->setType("Action");
 
@@ -32,7 +32,7 @@ class MovieFixtures extends Fixture
 
         $movie3 = new Movie();
         $movie3->setTitle('The Hobbit');
-        $movie3->setImage('https://static.hitek.fr/img/actualite/ill_m/158956086/lehobbittrilogie.webp');
+        $movie3->setImage('https://image.posterlounge.fr/images/l/1908791.jpg');
         $movie3->setYear('2012');
         $movie3->setType("Fantasy");
 
